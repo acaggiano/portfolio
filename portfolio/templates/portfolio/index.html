@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Anthony Caggiano | Web Developer</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300, 400|Open+Sans:300, 400" rel="stylesheet">
+    <link href="{% static 'portfolio/css/main.css' %}" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <svg id="logo" width="40" height="40" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <rect x="5" y="5" width="30" height="30" stroke="#fff" fill="transparent" stroke-width="5"/>
+        </svg>
+        <div>
+            <h3>Anthony Caggiano</h3>
+            <p>web developer</p>
+        </div>
+    </nav>
+    <header>
+        <h1>Front-End Web Developer</h1>
+        <ul id="skills">
+            <li>html</li>
+            <li>javascript</li>
+            <li>python</li>
+        </ul>
+    </header>
+    <section>
+        <div class="banner">
+            <h2 class="contain">Projects</h2>
+        </div>
+        <div id="projects" class="contain">
+        {% for project in projects %}
+            <div class="project">
+                <div class="background" style="background-image: url('{{ project.image.url }}')">
+                </div>
+                <div class="overlay">
+                    <h3 class="project-name">{{ project.name }}</h3>
+                    <div class="project-description">
+                        <p>{{ project.description }}</p>
+                        <p class="project-url">{% if project.address %}<a href="{{ project.address }}" target="_blank">Visit</a>{% endif %}{% if project.github and project.address %} | {% endif %}{% if project.github %}<a href="{{ project.github }}" target="_blank">View Code</a>{% endif %}</p>
+                    </div>
+                    <div class="tags">
+                        {% for tag in project.tags.all %}
+                            <p>{{ tag }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+        </ul>
+    </section>
+    <footer>&copy;{% now "Y" %} Anthony Caggiano</footer>
+</body>
+</html>
