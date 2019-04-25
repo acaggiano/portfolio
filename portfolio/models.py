@@ -18,7 +18,7 @@ class Project(models.Model):
     address = models.URLField(blank=True)
     github = models.URLField(blank=True)
     tags = models.ManyToManyField(Category)
-    image = models.ImageField(upload_to='uploads/portfolio/project_images/', blank=True)
+    image = models.ImageField(upload_to='uploads/portfolio/project_images', blank=True)
     slug = models.SlugField(blank=True, unique=True)
 
     def save(self, *args, **kwargs):
@@ -28,5 +28,4 @@ class Project(models.Model):
 
     def __str__(self):
         return self.name
-
     

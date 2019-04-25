@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
-import os
+import os, sys, dj_database_url
 
 from .local_settings import *
 
@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'anthonycaggiano.com', 'www.anthonycaggiano.com']
 
 
 # Application definition
@@ -75,13 +75,12 @@ WSGI_APPLICATION = 'portfoliosite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+DATABASES = {}
 
+if not getattr(sys.modules[__name__], 'DATABASE_URL', None) and DEBUG:
+    DATABASE_URL = 'sqlite:///{}'.format(os.path.abspath('db.sqlite3'))
+
+DATABASES['default'] = dj_database_url.config(default = DATABASE_URL)
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -119,12 +118,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
+STATIC_ROOT = '/var/www/portfolio.anthonycaggiano.com/portfolio/static/'
 STATIC_URL = '/static/'
 
+MEDIA_ROOT = '/var/www/portfolio.anthonycaggiano.com/portfolio/media/'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = (
-    os.path.join(BASE_DIR, 'media')
-)
 
 # PRODUCTION
 # STATIC_ROOT = '/var/www/shirts.weodev.party/shirtsite/static/'

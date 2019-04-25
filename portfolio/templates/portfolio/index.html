@@ -35,7 +35,7 @@
         <div id="projects" class="contain">
         {% for project in projects %}
             <div class="project">
-                <div class="background" style="background-image: url('{{ project.image.url }}')">
+		    <div class="background" {% if project.image %}style="background-image: url('{{ project.image.url }}')"{% endif %}>
                 </div>
                 <div class="overlay">
                     <h3 class="project-name">{{ project.name }}</h3>
