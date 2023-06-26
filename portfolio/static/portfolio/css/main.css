@@ -50,7 +50,6 @@ nav > * {
 .links li {
     display: inline-block;
     font-family: "Montserrat", sans-serif;
-    margin-left: 20px;
 }
 
 .links li a {
@@ -74,6 +73,11 @@ header h1 {
     font-size: 2rem;
 }
 
+header h3 {
+    text-align: center;
+    font-size: 1.25rem;
+}
+
 .contain {
     max-width: 1280px;
     margin: 0 auto;
@@ -87,6 +91,17 @@ header h1 {
 #socials li {
     display: inline-block;
     margin-left: 10px;
+    font-family: "Montserrat", sans-serif;
+}
+
+#socials li a:link{
+    color: var(--light-text);
+    text-decoration: none;
+}
+
+#socials li a:hover{
+    color: var(--accent-color);
+    text-decoration: underline;
 }
 
 .banner {
