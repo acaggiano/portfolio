@@ -104,6 +104,11 @@ header h3 {
     text-decoration: underline;
 }
 
+#socials li a:visited{
+    color: var(--light-text);
+    text-decoration: none;
+}
+
 .banner {
     background-color: var(--accent-color);
     padding: 1.66%;
