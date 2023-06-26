@@ -69,11 +69,13 @@ header {
 }
 
 header h1 {
+    margin-top: auto;
     text-align: center;
     font-size: 2rem;
 }
 
 header h3 {
+    margin-top: 5px;
     text-align: center;
     font-size: 1.25rem;
 }
@@ -84,17 +86,25 @@ header h3 {
 }
 
 #socials {
+    margin-top: auto;
+    margin-bottom: 20px;
     list-style: none;
     text-align: center;
 }
 
 #socials li {
+    font-size: 1.15rem;
     display: inline-block;
     margin-left: 10px;
     font-family: "Montserrat", sans-serif;
 }
 
-#socials li a:link{
+#socials li a{
+    color: var(--light-text);
+    text-decoration: none;
+}
+
+#socials li a:visited{
     color: var(--light-text);
     text-decoration: none;
 }
@@ -102,11 +112,6 @@ header h3 {
 #socials li a:hover{
     color: var(--accent-color);
     text-decoration: underline;
-}
-
-#socials li a:visited{
-    color: var(--light-text);
-    text-decoration: none;
 }
 
 .banner {
