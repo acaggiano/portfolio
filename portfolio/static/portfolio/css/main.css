@@ -79,12 +79,12 @@ header h1 {
     margin: 0 auto;
 }
 
-#skills {
+#socials {
     list-style: none;
     text-align: center;
 }
 
-#skills li {
+#socials li {
     display: inline-block;
     margin-left: 10px;
 }
